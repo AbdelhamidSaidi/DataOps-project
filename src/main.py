@@ -1,6 +1,6 @@
-from extract import extract
-from transform import transform
-from load import load
+from src.extract import extract
+from src.transform import transform
+from src.load import load
 
 
 def run_pipeline():
