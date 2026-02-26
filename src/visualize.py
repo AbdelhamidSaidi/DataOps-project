@@ -17,7 +17,6 @@ def create_visuals(df, output_dir="data/visualisations"):
     ax.set_ylabel("Total Sales")
     plt.tight_layout()
     ax_fig_path = os.path.join(output_dir, "sales_by_category.png")
-    ax_svg_path = os.path.join(output_dir, "sales_by_category.svg")
     plt.savefig(ax_fig_path, dpi=150)
     plt.savefig(ax_svg_path)
     plt.close()
@@ -65,7 +64,6 @@ def create_visuals(df, output_dir="data/visualisations"):
 
     plt.tight_layout()
     scatter_png = os.path.join(output_dir, "quantity_vs_price.png")
-    scatter_svg = os.path.join(output_dir, "quantity_vs_price.svg")
     plt.savefig(scatter_png, dpi=150, bbox_inches="tight")
     plt.savefig(scatter_svg, bbox_inches="tight")
     plt.close()
