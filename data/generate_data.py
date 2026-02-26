@@ -4,6 +4,7 @@ from faker import Faker
 
 fake = Faker()
 
+
 def generate_data(n_rows=150_000):
     product_categories = [
         "Electronics",
@@ -21,7 +22,9 @@ def generate_data(n_rows=150_000):
         "product_category": [random.choice(product_categories) for _ in range(n_rows)],
         "quantity": [random.randint(1, 10) for _ in range(n_rows)],
         "price": [round(random.uniform(5, 500), 2) for _ in range(n_rows)],
-        "order_date": [fake.date_time_between(start_date="-1y", end_date="now") for _ in range(n_rows)]
+        "order_date": [
+            fake.date_time_between(start_date="-1y", end_date="now") for _ in range(n_rows)
+        ]
     }
 
     return pd.DataFrame(data)
