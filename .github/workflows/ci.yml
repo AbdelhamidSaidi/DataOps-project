@@ -36,8 +36,8 @@ jobs:
       run: |
         python src/main.py
 
-    - name: Upload visualizations
-      uses: actions/upload-artifact@v3
+    - name: Upload visualisations
+      uses: actions/upload-artifact@v4
       with:
-        name: visualizations
-        path: data/visualizations/
+        name: visualisations
+        path: data/visualisations/*
