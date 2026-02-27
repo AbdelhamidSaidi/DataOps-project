@@ -7,7 +7,6 @@ def run_pipeline():
     df = extract("data/raw_data.csv")
     df = transform(df)
     load(df)
-    create_visuals(df)
 
 
 if __name__ == "__main__":
