@@ -1,6 +1,6 @@
-DataOps Project – End-to-End Data Pipeline with CI/CD and Interactive Dashboard
+# DataOps Project – End-to-End Data Pipeline with CI/CD and Interactive Dashboard
 
-Overview
+## Overview
 
 This project demonstrates a complete DataOps workflow, from data
 generation and processing to automated testing, CI/CD integration, and
@@ -17,7 +17,7 @@ The goal of this project is to showcase:
 
 ------------------------------------------------------------------------
 
-Project Architecture
+## Project Architecture
 
 					+---------------------+
 					|   Data Generation   |
@@ -56,7 +56,7 @@ Project Architecture
 
 ------------------------------------------------------------------------
 
-Tech Stack
+## Tech Stack
 
 -   Python
 -   Pandas
@@ -68,7 +68,7 @@ Tech Stack
 
 ------------------------------------------------------------------------
 
-Project Structure
+## Project Structure
 
 	dataops-project/
 	│
@@ -89,39 +89,39 @@ Project Structure
 
 ------------------------------------------------------------------------
 
-Features
+## Features
 
-1. Data Generation
+### 1. Data Generation
 
 -   Synthetic dataset creation using Faker
 -   Structured tabular format
 -   Reproducible pipelines
 
-2. Data Processing
+### 2. Data Processing
 
 -   Cleaning and transformation
 -   Aggregations
 -   Feature engineering
 
-3. Automated Testing
+### 3. Automated Testing
 
 -   Data validation using Pytest
 -   Schema verification
 -   Integrity checks
 
-4. Continuous Integration (CI)
+### 4. Continuous Integration (CI)
 
 -   Automated testing on every push
 -   Linting and quality checks
 -   Fails fast on broken builds
 
-5. Continuous Deployment (CD)
+### 5. Continuous Deployment (CD)
 
 -   Automatic deployment to Streamlit Cloud
 -   Rebuild on GitHub push
 -   Zero manual deployment
 
-6. Interactive Dashboard
+### 6. Interactive Dashboard
 
 -   Built with Streamlit
 -   Dynamic filtering
@@ -130,7 +130,7 @@ Features
 
 ------------------------------------------------------------------------
 
-Installation (Local Development)
+## Installation (Local Development)
 
 Clone the repository:
 
@@ -152,7 +152,7 @@ Run the app:
 
 ------------------------------------------------------------------------
 
-Deployment
+## Deployment
 
 The project is deployed using Streamlit Cloud.
 
@@ -165,7 +165,7 @@ Deployment workflow:
 
 ------------------------------------------------------------------------
 
-Dependency Management Strategy
+## Dependency Management Strategy
 
 Production dependencies are intentionally minimal:
 
@@ -178,7 +178,7 @@ This prevents cloud deployment conflicts.
 
 ------------------------------------------------------------------------
 
-CI/CD Pipeline
+## CI/CD Pipeline
 
 GitHub Actions automatically:
 
@@ -188,26 +188,4 @@ GitHub Actions automatically:
 -   Allows deployment only on success
 
 This simulates real-world DataOps workflow.
-
-------------------------------------------------------------------------
-
-Future Improvements
-
--   Add database integration (PostgreSQL)
--   Add Docker containerization
--   Add data quality monitoring
--   Add scheduled data refresh
--   Implement logging & observability
-
-------------------------------------------------------------------------
-
-Author
-
-DataOps Portfolio Project
-
-------------------------------------------------------------------------
-
-License
-
-This project is for educational and portfolio purposes.
 
