@@ -1,60 +1,213 @@
-## DataOps project
+DataOps Project – End-to-End Data Pipeline with CI/CD and Interactive Dashboard
 
-Small ETL-style pipeline that:
+Overview
 
-1. Extracts sales data from a CSV
-2. Transforms it (drops nulls, computes `total = quantity * price`)
-3. Loads it into a local SQLite database (`data.db`)
-4. Generates visualisations in `data/visualisations/`
+This project demonstrates a complete DataOps workflow, from data
+generation and processing to automated testing, CI/CD integration, and
+interactive data visualization using Streamlit.
 
-### Prerequisites
+The goal of this project is to showcase:
 
-- Python 3.9+ (CI uses Python 3.13)
+-   Data pipeline automation
+-   Clean project structure
+-   Continuous Integration (CI)
+-   Continuous Deployment (CD)
+-   Interactive dashboard deployment
+-   Production-ready dependency management
 
-### Install
+------------------------------------------------------------------------
 
-```bash
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
+Project Architecture
 
-### (Optional) Generate the dataset
+					+---------------------+
+					|   Data Generation   |
+					|   (Faker / Scripts) |
+					+----------+----------+
+							   |
+							   v
+					+---------------------+
+					|   Data Processing   |
+					|   (Pandas / Numpy)  |
+					+----------+----------+
+							   |
+							   v
+					+---------------------+
+					|   Data Validation   |
+					|     (Pytest CI)     |
+					+----------+----------+
+							   |
+							   v
+					+---------------------+
+					|   GitHub Actions    |
+					| Continuous Integration |
+					+----------+----------+
+							   |
+							   v
+					+---------------------+
+					|   Streamlit App     |
+					|   Interactive Viz   |
+					+----------+----------+
+							   |
+							   v
+					+---------------------+
+					| Streamlit Cloud     |
+					| Continuous Deployment |
+					+---------------------+
 
-This creates/overwrites `data/raw_data.csv` (default: 150,000 rows).
+------------------------------------------------------------------------
 
-```bash
-python data/generate_data.py
-```
+Tech Stack
 
-### Run the pipeline
+-   Python
+-   Pandas
+-   NumPy
+-   Plotly
+-   Streamlit
+-   Pytest
+-   GitHub Actions
 
-```bash
-python src/main.py
-```
+------------------------------------------------------------------------
 
-### Outputs
+Project Structure
 
-- SQLite DB: `data.db` (table: `sales`)
-- Visualisations (created/overwritten each run):
-	- `data/visualisations/sales_by_category.png`
-	- `data/visualisations/quantity_vs_price.png`
-	- SVG versions are also produced alongside the PNGs
+	dataops-project/
+	│
+	├── app.py                  # Streamlit dashboard
+	├── requirements.txt        # Production dependencies
+	├── runtime.txt             # Python version control
+	│
+	├── data/
+	│   ├── raw/                # Generated raw data
+	│   ├── processed/          # Cleaned datasets
+	│   └── visualizations/     # Exported charts
+	│
+	├── tests/
+	│   └── test_data.py        # Data validation tests
+	│
+	└── .github/workflows/
+		└── ci.yml              # GitHub Actions pipeline
 
-### Development
+------------------------------------------------------------------------
 
-Run lint + tests:
+Features
 
-```bash
-flake8 src/
-pytest
-```
+1. Data Generation
 
-### CI
+-   Synthetic dataset creation using Faker
+-   Structured tabular format
+-   Reproducible pipelines
 
-GitHub Actions workflow at `.github/workflows/ci.yml` runs on pushes and PRs to `main`:
+2. Data Processing
 
-- installs dependencies
-- runs `flake8` + `pytest`
-- runs `python src/main.py`
-- uploads `data/visualisations/*` as a build artifact named `visualisations`
+-   Cleaning and transformation
+-   Aggregations
+-   Feature engineering
+
+3. Automated Testing
+
+-   Data validation using Pytest
+-   Schema verification
+-   Integrity checks
+
+4. Continuous Integration (CI)
+
+-   Automated testing on every push
+-   Linting and quality checks
+-   Fails fast on broken builds
+
+5. Continuous Deployment (CD)
+
+-   Automatic deployment to Streamlit Cloud
+-   Rebuild on GitHub push
+-   Zero manual deployment
+
+6. Interactive Dashboard
+
+-   Built with Streamlit
+-   Dynamic filtering
+-   Interactive visualizations with Plotly
+-   Real-time data exploration
+
+------------------------------------------------------------------------
+
+Installation (Local Development)
+
+Clone the repository:
+
+	git clone https://github.com/AbdelhamidSaidi/dataops-project.git
+	cd dataops-project
+
+Create virtual environment:
+
+	python -m venv venv
+	source venv/bin/activate  # or venv\Scripts\activate on Windows
+
+Install dependencies:
+
+	pip install -r requirements.txt
+
+Run the app:
+
+	streamlit run app.py
+
+------------------------------------------------------------------------
+
+Deployment
+
+The project is deployed using Streamlit Cloud.
+
+Deployment workflow:
+
+1.  Push changes to main branch
+2.  GitHub Actions runs tests
+3.  If tests pass → Streamlit Cloud rebuilds
+4.  New version goes live automatically
+
+------------------------------------------------------------------------
+
+Dependency Management Strategy
+
+Production dependencies are intentionally minimal:
+
+-   Only top-level libraries are pinned
+-   No development tools in production
+-   numpy<2 ensures Streamlit compatibility
+-   Python version controlled with runtime.txt
+
+This prevents cloud deployment conflicts.
+
+------------------------------------------------------------------------
+
+CI/CD Pipeline
+
+GitHub Actions automatically:
+
+-   Installs dependencies
+-   Runs tests
+-   Fails build if tests fail
+-   Allows deployment only on success
+
+This simulates real-world DataOps workflow.
+
+------------------------------------------------------------------------
+
+Future Improvements
+
+-   Add database integration (PostgreSQL)
+-   Add Docker containerization
+-   Add data quality monitoring
+-   Add scheduled data refresh
+-   Implement logging & observability
+
+------------------------------------------------------------------------
+
+Author
+
+DataOps Portfolio Project
+
+------------------------------------------------------------------------
+
+License
+
+This project is for educational and portfolio purposes.
 
