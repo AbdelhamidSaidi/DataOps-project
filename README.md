@@ -200,14 +200,3 @@ Future Improvements
 -   Implement logging & observability
 
 ------------------------------------------------------------------------
-
-Author
-
-DataOps Portfolio Project
-
-------------------------------------------------------------------------
-
-License
-
-This project is for educational and portfolio purposes.
-
