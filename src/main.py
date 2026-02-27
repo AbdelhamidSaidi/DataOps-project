@@ -1,7 +1,6 @@
 from extract import extract
 from transform import transform
 from load import load
-from visualize import create_visuals
 
 
 def run_pipeline():
